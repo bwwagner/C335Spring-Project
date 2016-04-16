@@ -15,6 +15,32 @@ LOWXBND EQU 0
 LOWYBND EQU 0
 UPXBND EQU 800
 UPYBND EQU 600
+MAXSHOTS EQU 3
+MAXASTER EQU 6
+
+shot		STRUCT
+	xCoord	DWORD 0
+	yCoord	DWORD 0
+	heading	DWORD 0
+	accel	DWORD 40
+	toDraw	DWORD 0
+shot		ENDS
+
+ship		STRUCT
+	xCoord	DWORD 400
+	yCoord	DWORD 300
+	heading	DWORD 90
+	accel	DWORD 0
+ship		ENDS
+
+aster	STRUCT
+	xCoord	DWORD 0
+	yCoord	DWORD 0
+	heading	DWORD 0
+	accel	DWORD 0
+	toDraw	DWORD 0
+aster	ENDS
+
 shipLocX DWORD 50		; X coordinate of the ship
 shipLocY DWORD 50		; Y coordinate of the ship
 shipHeading DWORD 90	; Heading of the ship
@@ -29,7 +55,7 @@ playerScore DWORD 0		; player score
 playerLives DWORD 0		; player number of lives/tries
 
 ; Welcome Message
-GreetTitle BYTE "ErrorRoids!",0
+GreetTitle BYTE "AAC!",0
 GreetText  BYTE "Welcome to AAC! "
 	       BYTE "Press OK to begin. ",0
 
@@ -280,10 +306,7 @@ Main_Loop:
 	pop edx
 	pop ebx
 	pop eax
-	nop
-	nop
-
-
+	
 
      MessageCheck:
 	; Relay the message to the program's WinProc.
@@ -352,8 +375,7 @@ WinProc PROC,
 	mov eax, localMsg
 
 	.IF eax == WM_LBUTTONDOWN		; mouse button?
-	  INVOKE MessageBox, hWnd, ADDR PopupText,
-	    ADDR PopupTitle, MB_OK
+	  ; TODO: Check against max number of bullets
 	  inc shotsFired			; increase shots fired
 	  jmp WinProcExit
 	.ELSEIF eax == WM_CREATE		; create window?	  
@@ -378,7 +400,7 @@ WinProc PROC,
 	  je SpaceKey
 	  jmp Default
 	  ; Ship movement - 3 pixels per press
-	  ; Upper left corner of window is (0,0) Starting point of the ship is (50,50)
+	  ; Upper left corner of window is (0,0) Starting point of the ship is (400,300)
 	  UpKey:
 	    mov shipAccel,1		; fire thrusters
 	    endUp:
