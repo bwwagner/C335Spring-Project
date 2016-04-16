@@ -1,0 +1,33 @@
+*LOGO HERE*
+
+AAC is an action game where you control a program debugger to destroy errors in your  
+program. The errors appear as large asteroids which must be destroyed.  Be careful!   
+Destroying a large asteroid causes it to split into smaller asteroids which are harder  
+to track, and will split once more to smallest syntax asteroids before being removed.  
+You will be faced with many asteroids which will seem to increase in number constantly  
+(unless you are godlike).  
+Although final victory over errors may not be possible,  
+try to get the highest debugging score that you can!  
+Good Luck!
+
+=======Requirements=======
+Windows 32-bit
+Keyboard
+Mouse
+Reflexes
+Pulse
+
+=======Controls=======
+Up Arrow - Hold to fire thrusters
+Down Arrow - Press to stop thrust
+Space Key- Toggle thrusters on and off
+Left Key - Press to turn ship left (clockwise)
+Right Key - Press to turn ship right (counterclockwise)
+Left Click - Press to fire bullets (up to three on screen at once)
+
+
+=======Scoring=======
+5 points per second played
+20 points for debugging large asteriod
+50 points for debugging medium asteroid
+100 points for debugging small asteroid
