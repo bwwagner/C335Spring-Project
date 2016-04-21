@@ -32,11 +32,12 @@ void doPaint(HDC hdc) {
 	int yLoc = 20, xLoc = 0;
 	//int lineHeight;
 
-		LPCWSTR x;
-		x = L"V";
+		
+		TCHAR txt[] = "Text goes here";
+		
 		xLoc += 200;
 		yLoc += 200;
-		TextOut(hdc, xLoc, yLoc, x, 1);
+		TextOut(hdc, xLoc, yLoc, txt, 4);
 		//GetTextExtentPoint32(hdc, s1, size, ptr);
 		//lineHeight = strSize.cy;  //string only?
 		//yLoc += lineHeight;
@@ -44,3 +45,7 @@ void doPaint(HDC hdc) {
 		yLoc = 20;
 	
 } // doPaintData
+
+void main() {
+	return;
+} // main

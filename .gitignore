@@ -236,4 +236,7 @@ _Pvt_Extensions
 .fake/
 
 # VS Project Working Directory
-E:\IUSE Spring 2016\CSCI-C335-18862\Assembly Project\Assembly Asteroid Clone\AAC Main\AAC\*
+*.lst
+*.sln
+*.vcxproj
+*.vcxproj.*

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by L2P2Win.rc
+// Used by ACCWin.rc
 //
 
 #define IDS_APP_TITLE			103

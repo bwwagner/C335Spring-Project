@@ -1,0 +1,69 @@
+Project ASMRoids
+Architecture Report 
+Branden Wagner
+C335
+04/21/2016
+
+	Assembly programs are uncommon in modern programming.  As a consequence, there is 
+a limited range of library support for many Application Programming Interfaces (API’s), even 
+Microsoft’s Windows32.  Making a simple game in assembly is possible, however, we were 
+unable to render even trivial amounts of graphics in a Windows32 environment.  The amount of 
+support for paint functions under standard Irvine libraries is insufficient to paint graphics under 
+the Windows 32 Application Programming Interface (API).  Additionally, due to the design and 
+requirements of the Irvine libraries they are unable to be used with other libraries.  Consequently, 
+we were not able to meet the graphical goals of ASMroids.  Future developers should be 
+prepared to use a different design, or have resources available to extend the Irvine library.
+	Assembly consists of instructions executed directly by the processor, and any data 
+manipulation takes place in memory directly to binary data.  This data, while difficult for 
+humans to read directly, can still be manipulated very efficiently using assembly instructions.  
+These instructions are unique for each processor architecture, which significantly hampers the 
+portability of assembly programs.
+      The low level manipulation such code executes poses a significant threat to safe 
+operation of a modern Operating System (OS).  The common way to alleviate this risk is to run 
+programs in a protected mode, which reserves certain sections of memory for program execution.
+	This protected mode operation does not include access to system interrupts which allow 
+programs to directly use hardware to perform actions, such as writing to video memory or 
+reading a keypress.  Instead, the OS will translate requests and allocate resources.  In order for a 
+program to use these resources specific collections of files called libraries must be used to 
+communicate requests to the operating system.  One such library is provided by Kip R. Irvine, 
+author of Assembly Language for x86 Processors.
+	These libraries primarily focus on text in a windows console, but offer limited support for 
+Windows32 (WIN32) API.  Unfortunately, the needs of our software surpassed the capabilities 
+of this library.  Specifically, we needed object rotation and pixel painting procedures that were 
+not supported by the Irvine library. It was determined that it would be better to use ASCII text 
+displayed in a console window for the graphics in ASMroids.
+	For the majority of the project development, there was only a single developer involved 
+in the production of this project.  This person was solely responsible for the design, 
+implementation, and testing of the final project.  Due to limited ability to reuse code, this project 
+was developed almost entirely from new code.  Consequently many of the original goals for 
+graphics and gameplay were not met.
+	ASMroids features an incomplete graphic solution where placeholder strings are written 
+to the playfield, but no alterations are made.  Upon a game over state, which is activated by 
+pressing the F4 key, an error string is written and then play is paused until the F2 key is pressed.
+	Controls are handled by the main window of the program, which watches for key presses 
+using windows events.  The windows handle is searched for a local message which corresponds 
+to an Operation Code.  This operation code can be interpreted and, we can read a Virtual Key 
+code from the local message to determine if it is relevant to the program operation.  A jump table 
+for the relevant key is accessed and operations are performed on related game structures, such as 
+increasing acceleration if the Up Arrow key is pressed.
+	The developer was unable to use this same technique to handle requests, by searching for 
+a WM_PAINT message, to draw to the screen as is normal under the WIN32 API.  Further 
+efforts to integrate other libraries and import code written in other languages also failed to solve 
+the problem.  The specific directives and calling conventions used under the Irvine libraries 
+mean that linking objects from two different codebases are effectively impossible under the 
+current version of the library.
+	In the future, the developer will significantly alter the design of the program so that it 
+uses a different set of libraries which will have better support for the drawing graphics under the 
+WIN32 API.  Further research could be done to produce additional files which could be added to 
+the static libraries that are part of the Irvine standard.
+
+
+Resources
+Irvine, K. R. (2014). Assembly language for x86 processors (7th ed.). Prentice-Hall. 
+Microsoft Corporation. (2016). Microsoft Macro Assembler Reference. Microsoft Developer 
+Network. Accessed April 20, 2016. Resource: https://msdn.microsoft.com/en-
+us/library/afzk3475.aspx
+Microsoft Corporation. (2016). Windows API Index. Microsoft Developer Network. Accessed 
+April 20, 2016. Resource: https://msdn.microsoft.com/en-
+us/library/windows/desktop/ff818516(v=vs.85).aspx
+

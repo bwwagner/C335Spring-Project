@@ -1,6 +1,11 @@
-*LOGO HERE*
+   _____    _________   _____               .__    .___      
+  /  _  \  /   _____/  /     \_______  ____ |__| __| _/______
+ /  /_\  \ \_____  \  /  \ /  \_  __ \/  _ \|  |/ __ |/  ___/
+/    |    \/        \/    Y    \  | \(  <_> )  / /_/ |\___ \ 
+\____|__  /_______  /\____|__  /__|   \____/|__\____ /____  >
+        \/        \/         \/                     \/    \/ 
 
-AAC is an action game where you control a program debugger to destroy errors in your  
+ASMroids is an action game where you control a program debugger to destroy errors in your  
 program. The errors appear as large asteroids which must be destroyed.  Be careful!   
 Destroying a large asteroid causes it to split into smaller asteroids which are harder  
 to track, and will split once more to smallest syntax asteroids before being removed.  
@@ -18,12 +23,17 @@ Reflexes
 Pulse
 
 =======Controls=======
-Up Arrow - Hold to fire thrusters
+Up Arrow   - Hold to fire thrusters at maximum
 Down Arrow - Press to stop thrust
-Space Key- Toggle thrusters on and off
-Left Key - Press to turn ship left (clockwise)
-Right Key - Press to turn ship right (counterclockwise)
+Space Key  - Toggle thrusters on and off for minimum thrust
+Left Key   - Press to turn ship left (clockwise)
+Right Key  - Press to turn ship right (counterclockwise)
 Left Click - Press to fire bullets (up to three on screen at once)
+F2 Key 	   - Toggles Game Pause
+
+=======Debug Controls=======
+F1 Key - Toggles Debug information display at end of program
+F4 Key - Causes Game Over Message to display
 
 
 =======Scoring=======
